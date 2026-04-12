@@ -1,0 +1,6 @@
+#include "Interpritor.hpp"
+#include "IDH/Lexar.hpp"
+#include "IDH/Generator.hpp"
+#include "IDH/Parser.hpp"
+#include "IDH/Optimizer.hpp"
+#include "IDH/VIPI.hpp"

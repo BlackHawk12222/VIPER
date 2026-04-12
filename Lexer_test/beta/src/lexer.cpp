@@ -3,14 +3,14 @@
 #include <deque>
 #include "lexer.hpp"
 
-enum TokenTypes {
+enum TokenTypes { 
     IntLiteral,
     FloatLiteral,
-    IdentifierColon,
+    Colon,
     Identifier,
-    OperatorEqual,
-    OperatorLessThan,
-    OperatorGreaterThan,
+    CompareEqual,
+    CompareLessThan,
+    CompareGreaterThan,
     OpeningParenthesis,
     ClosingParenthesis,
     KeywordIf,
@@ -18,10 +18,20 @@ enum TokenTypes {
     KeywordWhile,
     KeywordFor,
     KeywordReturn,
+    KeywordIn,
+    KeywordNot,
+    KeywordInt,
+    KeywordFloat,
+    KeywordStr,
+    KeywordList,
+    KeywordDict,
+    KeywordBool,
+    KeywordShort,
+    KeywordLong,
     EndStatement,
 };
 
-struct Token {
+struct Token { 
     TokenTypes type;
     std::string value;
 };
@@ -46,7 +56,7 @@ std::vector<std::string> splitString(const std::string &source) {
     return words;
 }
 
-void shift(std::vector<std::string> &src) {
+void shift(std::vector<std::string> &src) { 
     std::string first = src.front();
 
     if (!src.empty()) {
@@ -55,7 +65,7 @@ void shift(std::vector<std::string> &src) {
 }
 
 
-std::vector<Token> tokenize(const std::string& source) {
+std::vector<Token> tokenize(const std::string& source) { 
     std::vector<Token> tokens;
     std::vector<std::string> src = splitString(source);
     
@@ -71,11 +81,11 @@ std::vector<Token> tokenize(const std::string& source) {
         } else if (src.front() == "return") {
             tokens.push_back({KeywordReturn, "return"});
         } else if (src.front() == "=") {
-            tokens.push_back({OperatorEqual, "="});
+            tokens.push_back({CompareEqual, "="});
         } else if (src.front() == "<") {
-            tokens.push_back({OperatorLessThan, "<"});
+            tokens.push_back({CompareLessThan, "<"});
         } else if (src.front() == ">") {
-            tokens.push_back({OperatorGreaterThan, ">"});
+            tokens.push_back({CompareGreaterThan, ">"});
         } else if (src.front() == "(") {
             tokens.push_back({OpeningParenthesis, "("});
         } else if (src.front() == ")") {
@@ -88,7 +98,7 @@ std::vector<Token> tokenize(const std::string& source) {
             }
         } else if (!src.front().empty()) {
             if (src.front().back() == ':') {
-                tokens.push_back({IdentifierColon, src.front().substr(0, src.front().size() - 1)});
+                tokens.push_back({Colon, src.front().substr(0, src.front().size() - 1)});
             } else {
                 tokens.push_back({Identifier, src.front()});
             }
