@@ -5,3 +5,14 @@
 #include "CDH/Archive.hpp"
 #include "CDH/Record.hpp"
 #include "CLEAR.hpp"
+
+void Clear::start(){
+    while (Clear::loop==true) {
+
+    }
+    Clear::loop=true;
+}
+
+void Clear::stop(){
+    Clear::loop=false;
+}
