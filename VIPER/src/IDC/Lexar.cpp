@@ -1,8 +1,6 @@
 #include <string>
 #include "IDH/Lexar.hpp"
 
-
-
 std::vector<std::string> Lexar::split_code(std::string Code){
     std::vector<std::string> CodeList;
     return CodeList;

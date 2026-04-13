@@ -2,10 +2,34 @@
 #define VIPI_HPP
 
 #include <string>
+#include <vector>
+#include <map>
 #include "IDH/Lexar.hpp"
 
 class Syntax{
     public:
         bool check_syntax(std::string Word);
+        std::map<std::string, TokenTypes> list_syntax();
+    private:
+        std::map<std::string, TokenTypes> SyntaxMap {
+            {"if", TokenTypes::KeyWordIf},
+            {"for", TokenTypes::KeyWordFor},
+            {"while", TokenTypes::KeyWordWhile},
+            {"wait", TokenTypes::KeyWordWait},
+            {"until", TokenTypes::KeywordUntil},
+            {"and", TokenTypes::LogicalAnd},
+            {"or", TokenTypes::LogicalOr},
+            {"xor", TokenTypes::LogicalXor},
+            {"not", TokenTypes::LogicalNot},
+            {"is", TokenTypes::LogicalIs},
+            {"in", TokenTypes::LogicalIn},
+            {"int", TokenTypes::TypeInt},
+            {"float", TokenTypes::TypeFloat},
+            {"double", TokenTypes::TypeDouble},
+            {"string", TokenTypes::TypeString},
+            {"list", TokenTypes::TypeList},
+            {"dict", TokenTypes::TypeDict},
+            {"set", TokenTypes::TypeSet},
+        };
 };
 #endif  // Generator_HPP

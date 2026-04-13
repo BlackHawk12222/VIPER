@@ -4,10 +4,7 @@
 #include <vector>
 #include <string>
 
-
-class Lexar{
-    private:
-        enum TokenTypes{ 
+enum class TokenTypes{ 
         IDTypeVari,
         IDTypeFunc,
         EndStatement,
@@ -57,7 +54,11 @@ class Lexar{
         BoolFalse,
         Unknown
         };
+
+class Lexar{
     public:
+        
+
         struct Token
         {
             TokenTypes Type;
