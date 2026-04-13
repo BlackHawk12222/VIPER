@@ -4,14 +4,18 @@
 #include <string>
 #include <vector>
 #include <map>
+#include "main.h"
 #include "IDH/Lexar.hpp"
 
 class Syntax{
     public:
         bool check_syntax(std::string Word);
         std::map<std::string, TokenTypes> list_syntax();
+        void tank_drive(pros::Controller Controller, std::vector<pros::Motor> LeftMotors, std::vector<pros::Motor> RightMotors);
+        
+
     private:
-        std::map<std::string, TokenTypes> SyntaxMap {
+        const std::map<std::string, TokenTypes> SyntaxMap {
             {"if", TokenTypes::KeyWordIf},
             {"for", TokenTypes::KeyWordFor},
             {"while", TokenTypes::KeyWordWhile},

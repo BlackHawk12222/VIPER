@@ -1,5 +1,6 @@
 #include <vector>
 #include <string>
+#include <map>
 #include "IDH/VIPI.hpp"
 #include "IDH/Lexar.hpp"
 
